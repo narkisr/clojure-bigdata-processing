@@ -79,12 +79,49 @@
 	    </section>
 
 	    <section>
-		<pre><code class="clojure"> 
+		<h4> Datastructures </h4>
+		<pre><code class='clojure'> 
+(
+ []  ;vector
+ #{} ;set 
+ {}  ;hash
+); list
 		</code></pre>
 	    </section> 
 
+	    <section>
+		<h4>Macros</h4>
+	      <pre><code class="clojure">
+(defmacro when [test & body]
+ "'(if test (do body))"
+  (list 'if test (cons 'do body)))
+		</code></pre>
+	    </section>
 	  </section>
 
+        <section id='clojure-hadoop'> 
+	   <section>
+	     <h4> Java Word count </h4>
+	     <pre><code class="java">
+public class WordCount {
+  public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
+   public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException  {
+   }
+  }
+
+  public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
+    public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+        
+    }
+  }
+  
+}
+           </code></pre>
+	     <aside class="notes"> 
+	      see http://wiki.apache.org/hadoop/WordCount 
+	     </aside>
+	   </section> 
+	  </section>
 
 	  <section> 
 	    <section>
