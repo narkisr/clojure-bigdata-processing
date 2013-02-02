@@ -1,0 +1,8 @@
+
+.fragment.scalling {
+	opacity: 100;
+}
+.fragment.scalling.visible{
+  -webkit-transform: scale(0.7);
+  -webkit-transition-delay: 2s;
+}

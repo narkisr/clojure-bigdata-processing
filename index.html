@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Clojure for Big Data Processing</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Ronen Narkis">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="css/effects.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/highlight_js/src/styles/github.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+	document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="js/cuepoint.js"></script>
+    <script src="js/keypress-1.0.1.js"></script>
+    <!--[if lt IE 9]>
+		    <script src="lib/js/html5shiv.js"></script>
+		    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+
+	  <section>
+	    <h3>Clojure for Big Data Processing</h3>
+	    <h4>A functional take on Hadoop</h4>
+	    <p>
+		<small>Created by <a href="narkisr.com">Ronen Narkis</a> / <a href="http://twitter.com/narkisr">@narkisr</a></small>
+	    </p>
+	  </section>
+
+	  <section>
+	    <h2>Agenda</h2>
+	    <p>
+		<ul>
+		  <li>Introducing Clojure</li>
+		  <li>Clojure Hadoop</li>
+		  <li>Clojure on EMR</li>
+		  <li>Cascalog</li>
+		  <li>Extending</li>
+		</ul>
+	    </p>
+
+	  </section>
+
+	 <section id='Clojure basics'>
+	    <section>
+		  <h2>Clojure</h2>
+		  A JVM Lisp dialect Developed in 2003 by Rich Hickey
+	    </section>
+
+          <section>
+		<h4> Hello world </h4>
+		<pre><code class='clojure'> 
+(defn say [arg] (println arg))
+
+(say "hello world")
+		</code></pre>
+	    </section>
+
+	    <section>
+		<pre><code class="clojure"> 
+		</code></pre>
+	    </section> 
+
+	  </section>
+
+
+	  <section> 
+	    <section>
+		<h3> Summary </h3>
+		<ul>
+		</ul>
+	    </section>
+
+	    <section>
+		<h3> Me</h3>
+		<ul>
+		  <li> <a href="http://twitter.com/#!/narkisr/">@narkisr</a><br></li>
+		  <li> <a href="https://github.com/narkisr">github.com/narkisr</a> </li>
+		  <li> <a href="http://narkisr.com">narkisr.com</a></li>
+		  <li> <a href="http://il.linkedin.com/in/narkisr">il.linkedin.com/in/narkisr/</a> </li>
+		  <li> <a href="http://www.lambda.org.il/">lambda.org.il</a></li>
+		  <li> github.com/narkisr/vagrant-sketching-board</li>
+		</ul>
+	    </section>
+	  </section>
+
+	</div>
+    </div>
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script src="js/conf.js"></script>
+    <script src="js/demo-cuepoints.js"></script>
+    <script type="text/javascript"> 
+	keypress.combo("+", function() {
+	    speedup(curr_vid);
+	}); 
+      keypress.combo("shift _", function() {
+        speedown(curr_vid);
+      }); 
+    </script>
+  </body>
+</html>
