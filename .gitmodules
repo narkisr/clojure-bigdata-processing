@@ -1,0 +1,3 @@
+[submodule "lib/highlight_js"]
+	path = lib/highlight_js
+	url = git://github.com/isagalaev/highlight.js.git
