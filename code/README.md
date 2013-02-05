@@ -1,13 +1,15 @@
-# code
+# Intro
 
-A Clojure library designed to ... well, that part is up to you.
+A basic word count demo for clojure-for-bigdata talk
 
 ## Usage
 
-FIXME
+```bash
+ $ lein test
+```
 
 ## License
 
-Copyright © 2013 FIXME
+Copyright © 2013 narkisr.com
 
 Distributed under the Eclipse Public License, the same as Clojure.
