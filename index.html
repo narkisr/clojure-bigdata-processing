@@ -99,28 +99,47 @@
         <section id='clojure-hadoop'> 
 	   <section>
 	     <h4> Java Word count </h4>
-<pre><code class="java">public class WordCount {
-  public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
-   public void map(LongWritable key, Text value, Context context) 
-      throws IOException, InterruptedException  {
-   }
-  }
+<pre><code class="java">public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
+  private final static IntWritable one = new IntWritable();
+  private Text word = new Text();
 
-  public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
-    public void reduce(Text key, Iterable<IntWritable> values, Context context)
-       throws IOException, InterruptedException {
-        
+  public void map(LongWritable key, Text value, Context context) 
+                                    throws IOException, InterruptedException {
+   String line = value.toString();
+   StringTokenizer tokenizer = new StringTokenizer(line);
+   while (tokenizer.hasMoreTokens()) {
+    word.set(tokenizer.nextToken());
+      context.write(word, one);
     }
-  }
-  
-  public static void main(String[] args) throws Exception {
-  } 
-}
-           </code></pre>
+   }
+} 
+ </code></pre>
+<pre><code class="java"> 
+public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
+  public void reduce(Text key, Iterable<IntWritable> values, Context context) 
+   throws IOException, InterruptedException {
+   int sum = 0;
+   for (IntWritable val : values) {
+     sum += val.get();
+   }
+   context.write(key, new IntWritable(sum));
+ }
+}     
+</code></pre>
 	     <aside class="notes"> 
 	      see http://wiki.apache.org/hadoop/WordCount 
 	     </aside>
 	   </section> 
+	   <section> 
+<pre><code class="clojure"> 
+(defn mapper-map [this key value context]
+   (doseq [t (enumeration-seq (StringTokenizer. (str value)))]
+     (.write context (Text. t) (IntWritable. 1))))  
+          
+(defn reducer-reduce [this key ints context]
+  (.write context key (reduce + (map #(.get %) ints))))
+</code></pre> 
+	   </section>
 	  </section>
 
 	  <section>

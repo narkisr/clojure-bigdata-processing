@@ -19,8 +19,7 @@
 (defn reducer-reduce [this key ints ^ReduceContext context]
   (.write context key (reduce + (map #(.get %) ints))))
 
-(defn tool-run
-  [^Tool this args]
+(defn tool-run [^Tool this args]
   (let [[{:keys [input output tmp]} args banner]
         (cli args
              ["-i" "--input" "input text file"]
