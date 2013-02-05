@@ -5,3 +5,4 @@ tmp/**
 node_modules/
 .sass-cachecode/target
 code/.lein-repl-history
+code/target
