@@ -38,7 +38,6 @@
 
     <div class="reveal">
 
-	<!-- Any section element inside of this container is displayed as a slide -->
 	<div class="slides">
 
 	  <section>
@@ -57,7 +56,6 @@
 		  <li>Clojure Hadoop</li>
 		  <li>Clojure on EMR</li>
 		  <li>Cascalog</li>
-		  <li>Extending</li>
 		</ul>
 	    </p>
 
@@ -81,8 +79,7 @@
 	    <section>
 		<h4> Datastructures </h4>
 		<pre><code class='clojure'> 
-(
- []  ;vector
+([]  ;vector
  #{} ;set 
  {}  ;hash
 ); list
@@ -102,19 +99,22 @@
         <section id='clojure-hadoop'> 
 	   <section>
 	     <h4> Java Word count </h4>
-	     <pre><code class="java">
-public class WordCount {
+<pre><code class="java">public class WordCount {
   public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
-   public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException  {
+   public void map(LongWritable key, Text value, Context context) 
+      throws IOException, InterruptedException  {
    }
   }
 
   public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
-    public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+    public void reduce(Text key, Iterable<IntWritable> values, Context context)
+       throws IOException, InterruptedException {
         
     }
   }
   
+  public static void main(String[] args) throws Exception {
+  } 
 }
            </code></pre>
 	     <aside class="notes"> 
@@ -123,6 +123,14 @@ public class WordCount {
 	   </section> 
 	  </section>
 
+	  <section>
+	    <section> 
+		<h3> Pitfals</h3>
+	      <ul>
+	        <li> Clojure Lazyness and Hadoop reduce values</li>
+	      </ul> 
+	    </section>
+	  </section>
 	  <section> 
 	    <section>
 		<h3> Summary </h3>
