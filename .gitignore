@@ -3,4 +3,5 @@
 log/*.log
 tmp/**
 node_modules/
-.sass-cache
+.sass-cachecode/target
+code/.lein-repl-history
