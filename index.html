@@ -79,10 +79,10 @@
 	    <section>
 		<h4> Datastructures </h4>
 		<pre><code class='clojure'> 
-([]  ;vector
- #{} ;set 
- {}  ;hash
-); list
+[]  ;vector
+#{} ;set 
+{}  ;hash
+(); list
 		</code></pre>
 	    </section> 
 
@@ -114,8 +114,7 @@
    }
 } 
  </code></pre>
-<pre><code class="java"> 
-public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
+<pre><code class="java">public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
   public void reduce(Text key, Iterable<IntWritable> values, Context context) 
    throws IOException, InterruptedException {
    int sum = 0;
@@ -131,8 +130,7 @@ public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable>
 	     </aside>
 	   </section> 
 	   <section> 
-<pre><code class="clojure"> 
-(defn mapper-map [this key value context]
+<pre><code class="clojure">(defn mapper-map [this key value context]
    (doseq [t (enumeration-seq (StringTokenizer. (str value)))]
      (.write context (Text. t) (IntWritable. 1))))  
           
@@ -140,16 +138,61 @@ public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable>
   (.write context key (reduce + (map #(.get %) ints))))
 </code></pre> 
 	   </section>
+	   <section>
+	     <h2> 784 vs 259 lines </h3>
+	     <h4> 3 times reduction in size! </h3>
+	   </section>
+	   <section> 
+	    <h3> <strike>Compile</strike> work flow</h3> 
+	   </section>
+	  </section>
+
+	  <section id="emr">
+	    <section> 
+		<h3> Amazon EMR </h3>
+	    </section>
+	    <section> 
+		<h3> Lemur </h3>
+	    </section>
+	  </section>
+
+	  <section id="cascalog">
+	    <section>
+	      <h3>Cascalog</h3>
+		<h4> declerative Hadoop Jobs </h4>
+	    </section>
+	    <section>
+	      <h3> Query </h3>
+		<ul>
+		  <li>A Tap </li>
+		  <li>Result variables</li>
+		  <li>Predicates </li>
+		</ul>
+	    </section>
+
+	    <section>
+<pre><code class="clojure">(defmapcatop split [sentence]
+  (seq (.split sentence "\\s+")))	
+
+(?<- (stdout) [?word ?count] (sentence ?s)
+  (split ?s :> ?word) (c/count ?count))
+		</code></pre>
+	    </section>
 	  </section>
 
 	  <section>
 	    <section> 
 		<h3> Pitfals</h3>
 	      <ul>
-	        <li> Clojure Lazyness and Hadoop reduce values</li>
+	        <li> Clojure Lazyness and Hadoop values</li>
+		  <li> Serialization of Clojure types</li>
+		  <li> Autoboxing </li>
 	      </ul> 
+		<aside class="notes"> 
+		</aside>
 	    </section>
 	  </section>
+
 	  <section> 
 	    <section>
 		<h3> Summary </h3>
