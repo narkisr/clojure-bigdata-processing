@@ -5,6 +5,6 @@
                  [clojure-hadoop/clojure-hadoop "1.4.1"]
                  [org.clojure/tools.cli "0.2.1"]]
   
-  :plugins [[lein-tarsier "0.9.1"]]
+  :plugins [[lein-tarsier "0.9.1"] [perforate "0.2.3"]]
   :aot [code.core] 
   )

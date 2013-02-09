@@ -12,8 +12,10 @@
 (gen/gen-job-classes)  
 (gen/gen-main-method) 
 
+(defn tokenize [s] (StringTokenizer. s))
+
 (defn mapper-map [this ^Text key ^Text value ^MapContext context]
-   (doseq [t (enumeration-seq (StringTokenizer. (str value)))]
+   (doseq [t (enumeration-seq (tokenize (str value)))]
      (.write context (Text. t) (IntWritable. 1))))  
           
 (defn reducer-reduce [this key ints ^ReduceContext context]
