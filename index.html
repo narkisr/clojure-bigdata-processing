@@ -61,13 +61,13 @@
 
 	  </section>
 
-	 <section id='Clojure basics'>
+	  <section id='Clojure basics'>
 	    <section>
-		  <h2>Clojure</h2>
-		  A JVM Lisp dialect Developed in 2003 by Rich Hickey
+		<h2>Clojure</h2>
+		A JVM Lisp dialect Developed in 2003 by Rich Hickey
 	    </section>
 
-          <section>
+	    <section>
 		<h4> Hello world </h4>
 		<pre><code class='clojure'> 
 (defn say [arg] (println arg))
@@ -80,7 +80,6 @@
 		<h4> Datastructures </h4>
 		<pre><code class='clojure'> 
 []  ;vector
-#{} ;set 
 {}  ;hash
 (); list
 		</code></pre>
@@ -88,33 +87,40 @@
 
 	    <section>
 		<h4>Macros</h4>
-	      <pre><code class="clojure">
+		<pre><code class="clojure">
+;(if test (do body))
 (defmacro when [test & body]
- "'(if test (do body))"
   (list 'if test (cons 'do body)))
+		</code></pre>
+	    </section>
+
+	    <section> 
+		<h4> Iteration </h4>
+		<pre><code class="clojure">; 1 2 3
+(doseq [i [1 2 3]] (println i))
 		</code></pre>
 	    </section>
 	  </section>
 
-        <section id='clojure-hadoop'> 
-	   <section>
-	     <h4> Java Word count </h4>
-<pre><code class="java">public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
+	  <section id='clojure-hadoop'> 
+	    <section>
+		<h4> Java Word count </h4>
+		<pre><code class="java">public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
   private final static IntWritable one = new IntWritable();
   private Text word = new Text();
 
   public void map(LongWritable key, Text value, Context context) 
-                                    throws IOException, InterruptedException {
+						throws IOException, InterruptedException {
    String line = value.toString();
    StringTokenizer tokenizer = new StringTokenizer(line);
    while (tokenizer.hasMoreTokens()) {
     word.set(tokenizer.nextToken());
-      context.write(word, one);
+	context.write(word, one);
     }
    }
 } 
- </code></pre>
-<pre><code class="java">public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
+		</code></pre>
+		<pre><code class="java">public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
   public void reduce(Text key, Iterable<IntWritable> values, Context context) 
    throws IOException, InterruptedException {
    int sum = 0;
@@ -124,45 +130,109 @@
    context.write(key, new IntWritable(sum));
  }
 }     
-</code></pre>
-	     <aside class="notes"> 
-	      see http://wiki.apache.org/hadoop/WordCount 
-	     </aside>
-	   </section> 
-	   <section> 
-<pre><code class="clojure">(defn mapper-map [this key value context]
+		</code></pre>
+		<aside class="notes"> 
+		  see http://wiki.apache.org/hadoop/WordCount 
+		</aside>
+	    </section> 
+	    <section> 
+		<pre><code class="clojure">(defn mapper-map [this key value context]
    (doseq [t (enumeration-seq (StringTokenizer. (str value)))]
      (.write context (Text. t) (IntWritable. 1))))  
-          
+
 (defn reducer-reduce [this key ints context]
   (.write context key (reduce + (map #(.get %) ints))))
-</code></pre> 
-	   </section>
-	   <section>
-	     <h2> 784 vs 259 lines </h3>
-	     <h4> 3 times reduction in size! </h3>
-	   </section>
-	   <section> 
-	    <h3> <strike>Compile</strike> work flow</h3> 
-	   </section>
+		</code></pre> 
+	    </section>
+	    <section>
+		<h2> 784 vs 259 lines </h3>
+		<h4> 3 times reduction in size! </h3>
+	    </section>
+	    <section> 
+		<h3> <strike>Compile</strike> work flow</h3> 
+	    </section>
 	  </section>
 
 	  <section id="emr">
 	    <section> 
 		<h3> Amazon EMR </h3>
+		<img src="images/emr-services-diagram.png" />
 	    </section>
 	    <section> 
 		<h3> Lemur </h3>
+		<pre><code class="clojure">(defcluster demo-cluster
+  :num-instances 2
+  :slave-instance-type "m1.small"
+  :master-instance-type "m1.small"
+  :ami-version "2.1.1"
+  :hadoop-version "0.20.205" 
+  :jar-src-path "/home/ronen/code/code-0.1.0-standalone.jar"
+  :runtime-jar "s3://clj-demo/jar/code-0.1.0-standalone.jar"
+  :bucket "clj-demo"
+  :keypair "ec2-keypair")
+
+(defstep demo-step
+  :main-class "code.core"
+  :args.input "s3n://clj-demo/tom-sawyer.txt"
+  :args.output "s3n://clj-demo/${uuid8}")
+
+(fire! demo-cluster demo-step)
+		</code></pre>
 	    </section>
+	    <section>
+		<h3> Monitoring </h3>
+<pre><code class="clojure">
+(defcluster demo-cluster
+ :ganglia {
+  :num-instances 2 
+  :bootstrap-action.1 "s3://elasticmapreduce/bootstrap-actions/install-ganglia"
+  :keep-alive? true
+ }
+ ; ...
+) 
+</code></pre>
+	    </section>
+	    <section><img src="images/ganglia.png" alt="" /></section>
+	    <section>
+	      <h3>Performance tunning</h3>
+<pre><code class="clojure">(ns demo
+  (:use perforate.core code.core ))
+
+(defgoal tokenization "Testing tokenization speed")
+
+(defcase tokenization :small
+  [] (tokenize "I love food!"))		
+</code></pre>
+	    </section>
+         <section>
+<pre><code class="bash"> 
+% lein perforate 
+Benchmarking profiles:  nil
+======================
+Goal:  Testing tokenization speed
+-----
+Case:  :small
+Evaluation count             : 25347480
+  Execution time mean : 2.357080 us  95.0% CI: (2.356621 us, 2.357631 us)
+  Execution time std-deviation : 44.229907 us  95.0% CI: (43.761714 us, 44.722213 us)
+  Execution time lower ci : 2.290371 us  95.0% CI: (2.290371 us, 2.290371 us)
+  Execution time upper ci : 2.524936 us  95.0% CI: (2.524936 us, 2.525048 us)
+
+Found 5 outliers in 60 samples (8.3333 %)
+  low-severe	 3 (5.0000 %)
+  low-mild	 2 (3.3333 %)
+ Variance from outliers : 15.7988 % Variance is moderately inflated by outliers
+</code></pre>
+         </section>
 	  </section>
 
 	  <section id="cascalog">
 	    <section>
-	      <h3>Cascalog</h3>
+		<h3>Cascalog</h3>
 		<h4> declerative Hadoop Jobs </h4>
 	    </section>
 	    <section>
-	      <h3> Query </h3>
+		<h3> Query </h3>
 		<ul>
 		  <li>A Tap </li>
 		  <li>Result variables</li>
@@ -171,7 +241,7 @@
 	    </section>
 
 	    <section>
-<pre><code class="clojure">(defmapcatop split [sentence]
+		<pre><code class="clojure">(defmapcatop split [sentence]
   (seq (.split sentence "\\s+")))	
 
 (?<- (stdout) [?word ?count] (sentence ?s)
@@ -183,11 +253,11 @@
 	  <section>
 	    <section> 
 		<h3> Pitfals</h3>
-	      <ul>
-	        <li> Clojure Lazyness and Hadoop values</li>
+		<ul>
+		  <li> Clojure Lazyness and Hadoop values</li>
 		  <li> Serialization of Clojure types</li>
 		  <li> Autoboxing </li>
-	      </ul> 
+		</ul> 
 		<aside class="notes"> 
 		</aside>
 	    </section>
@@ -224,10 +294,10 @@
     <script type="text/javascript"> 
 	keypress.combo("+", function() {
 	    speedup(curr_vid);
-	}); 
-      keypress.combo("shift _", function() {
-        speedown(curr_vid);
-      }); 
+	    }); 
+keypress.combo("shift _", function() {
+    speedown(curr_vid);
+    }); 
     </script>
   </body>
 </html>
