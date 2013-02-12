@@ -24,6 +24,9 @@
 	  document.getElementById(id).playbackRate -= 1.0;
 	}
 
+     function jumpTo(id,time){
+	  document.getElementById(id).currentTime = time;
+     }
       var curr_vid;
 	function registerCue(data){
 	  Reveal.addEventListener( data.state, function() {
