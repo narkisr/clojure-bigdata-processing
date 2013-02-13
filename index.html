@@ -56,6 +56,7 @@
 		  <li>Clojure Hadoop</li>
 		  <li>Clojure on EMR</li>
 		  <li>Cascalog</li>
+		  <li>Pitfalls</li>
 		</ul>
 	    </p>
 
@@ -70,39 +71,59 @@
 	    <section>
 		<h4> Hello world </h4>
 		<pre><code class='clojure'> 
+(println "hello")
+		</code></pre>
+	    </section>
+
+	    <section>
+		<h4> Defining a function </h4>
+	      <pre><code class="clojure"> 
 (defn say [arg] (println arg))
 
 (say "hello world")
 		</code></pre>
 	    </section>
-
 	    <section>
 		<h4> Datastructures </h4>
 		<pre><code class='clojure'> 
-[]  ;vector
-{}  ;hash
-(); list
+[1 2 3]     ; vector
+{:a 1 :b 2} ; hash
+'(1 2 3)    ; list
+#{1 2}      ; set
 		</code></pre>
 	    </section> 
 
-	    <section>
-		<h4>Macros</h4>
+	    <section> 
+		<h4> Basic Iteration </h4>
 		<pre><code class="clojure">
-;(if test (do body))
-(defmacro when [test & body]
-  (list 'if test (cons 'do body)))
+(doseq [i [1 2 3]] (println i))
+
+; 1 2 3
 		</code></pre>
 	    </section>
 
-	    <section> 
-		<h4> Iteration </h4>
-		<pre><code class="clojure">; 1 2 3
-(doseq [i [1 2 3]] (println i))
+	    <section>
+		<h3> High order functions</h3>
+	      <pre><code class="clojure"> 
+(filter #(> % 1) [1 2 3])
 		</code></pre>
 	    </section>
+
+	    <section>
+		<h4>Destructuring and lexical scope</h4>
+		<pre><code class="clojure">
+(let [[x y] [1 2]]
+  (println x y))
+		</code></pre>
+	    </section>
+
+
 	  </section>
 
 	  <section id='clojure-hadoop'> 
+	    <section>
+	      <h2> Clojure Hadoop</h2>
+	    </section>
 	    <section>
 		<h4> Java Word count </h4>
 		<pre><code class="java">public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
@@ -110,7 +131,7 @@
   private Text word = new Text();
 
   public void map(LongWritable key, Text value, Context context) 
-						throws IOException, InterruptedException {
+		throws IOException, InterruptedException {
    String line = value.toString();
    StringTokenizer tokenizer = new StringTokenizer(line);
    while (tokenizer.hasMoreTokens()) {
@@ -136,8 +157,10 @@
 		</aside>
 	    </section> 
 	    <section> 
-		<pre><code class="clojure">(defn mapper-map [this key value context]
-   (doseq [t (enumeration-seq (StringTokenizer. (str value)))]
+		<pre><code class="clojure">(defn tokenize [s] (StringTokenizer. s))
+
+(defn mapper-map [this key value context]
+   (doseq [t (enumeration-seq (tokenize (str value)))]
      (.write context (Text. t) (IntWritable. 1))))  
 
 (defn reducer-reduce [this key ints context]
@@ -162,10 +185,14 @@
 	  <section id="emr">
 	    <section> 
 		<h3> Amazon EMR </h3>
+	    </section>
+
+	    <section> 
 		<img src="images/emr-services-diagram.png" />
 	    </section>
+
 	    <section> 
-		<h3> Lemur </h3>
+		<h3> Launching jobs </h3>
 		<pre><code class="clojure">(defcluster demo-cluster
   :num-instances 2
   :slave-instance-type "m1.small"
@@ -272,8 +299,15 @@ Found 5 outliers in 60 samples (8.3333 %)
 	  </section>
 
 	  <section>
-	    <section> 
+	    <section>
 		<h3> Pitfals</h3>
+	      <pre><code class="clojure">
+(defn reducer-reduce [this key ints context]
+  (let [larger (filter #(> % 1) ints)]
+    (.write context key (reduce + (map #(.get %) larger)))))
+		</code></pre>
+	    </section>
+	    <section> 
 		<ul>
 		  <li> Clojure Lazyness and Hadoop values</li>
 		  <li> Serialization of Clojure types</li>

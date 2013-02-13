@@ -18,8 +18,9 @@
    (doseq [t (enumeration-seq (tokenize (str value)))]
      (.write context (Text. t) (IntWritable. 1))))  
           
-(defn reducer-reduce [this key ints ^ReduceContext context]
-  (.write context key (reduce + (map #(.get %) ints))))
+(defn reducer-reduce [this key ints context]
+  (let [larger (filter #(> % 1) ints)]
+    (.write context key (reduce + (map #(.get %) larger)))))
 
 (defn tool-run [^Tool this args]
   (let [[{:keys [input output tmp]} args banner]
