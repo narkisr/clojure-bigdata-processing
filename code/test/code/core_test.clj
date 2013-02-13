@@ -11,5 +11,10 @@
 
 (deftest word-count
   (let [input "txt/tom-sawyer.txt" output "result"]
-    (io/delete-file output true)
-    (is (tool-run (clojure_hadoop.job.) ["-i" input "-o" output ]))))
+    (delete-dir output)
+    (is (tool-run (clojure_hadoop.job.) ["-i" input "-o" output ]))
+    (take 4 (split-lines (slurp (str output "/part-r-00000")))) 
+    ))
+
+
+
