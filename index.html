@@ -103,17 +103,17 @@
 	    </section>
 
 	    <section>
-		<h3> High order functions</h3>
+		<h4> High order functions</h4>
 	      <pre><code class="clojure"> 
 (filter #(> % 1) [1 2 3])
 		</code></pre>
 	    </section>
 
+
 	    <section>
-		<h4>Destructuring and lexical scope</h4>
+		<h4> Java interop</h4>
 		<pre><code class="clojure">
-(let [[x y] [1 2]]
-  (println x y))
+(.length (String. "hello"))
 		</code></pre>
 	    </section>
 
@@ -285,36 +285,74 @@ Found 5 outliers in 60 samples (8.3333 %)
 		  <li>A Tap </li>
 		  <li>Result variables</li>
 		  <li>Predicates </li>
+		  <li>Operates on tuples</li>
 		</ul>
 	    </section>
 
 	    <section>
-		<pre><code class="clojure">(defmapcatop split [sentence]
+		<h3> Defining a query <- </h3>
+	      <pre><code class="clojure"> 
+(def people [["ben" 35] ["jerry" 41]])		
+
+(<- [?name ?age]
+   (people ?name ?age)
+   (< ?age 40))
+		</code></pre>
+	    </section>
+	    <section>
+		<h3> Query execution ?-</h3>
+<pre><code class="clojure"> 
+(?- (stdout)
+  (<- [?name ?age]
+    (people ?name ?age)
+    (< ?age 40)))		
+</code></pre>
+	    </section>
+
+          <section>
+		<h3> At one fell swoop</h3>
+            <pre><code class="clojure"> 
+(?<- (stdout)
+  [?name ?age]
+  (people ?name ?age)
+  (< ?age 40))	
+		</code></pre>
+          </section>
+
+	    <section>
+		<h2> Predicates </h2>
+	    </section>
+
+	    <section>
+		<h3> Generators </h3>
+	      <pre><code class="clojure"> 
+(def generator-seq [["a" 1] 
+                    ["b" 2]])
+
+(?<- (stdout) [?a ?b] (generator-seq :> ?a ?b))
+; ["a" 1]
+; ["b" 2]
+		</code></pre>
+	    </section>
+	    <section>
+		<h3> Operations </h3>
+		<pre><code class="clojure">
+(defmapcatop split [sentence]
   (seq (.split sentence "\\s+")))	
 
+(?<- (stdout) [?word] (sentence ?s)
+     (split ?s :> ?word))
+		</code></pre>
+		<aside class="notes"> 
+          	  defmapcatop: Defines a custom operation which creates multiple tuples for a given input.	
+		</aside>
+	    </section>
+	    <section>
+	      <h3> Aggregators </h3>
+		<pre><code class="clojure"> 
 (?<- (stdout) [?word ?count] (sentence ?s)
   (split ?s :> ?word) (c/count ?count))
 		</code></pre>
-	    </section>
-	  </section>
-
-	  <section>
-	    <section>
-		<h3> Pitfals</h3>
-	      <pre><code class="clojure">
-(defn reducer-reduce [this key ints context]
-  (let [larger (filter #(> % 1) ints)]
-    (.write context key (reduce + (map #(.get %) larger)))))
-		</code></pre>
-	    </section>
-	    <section> 
-		<ul>
-		  <li> Clojure Lazyness and Hadoop values</li>
-		  <li> Serialization of Clojure types</li>
-		  <li> Autoboxing </li>
-		</ul> 
-		<aside class="notes"> 
-		</aside>
 	    </section>
 	  </section>
 
@@ -322,6 +360,8 @@ Found 5 outliers in 60 samples (8.3333 %)
 	    <section>
 		<h3> Summary </h3>
 		<ul>
+		  <li> Clojure is fun and productive</li>
+		  <li> The echo system is there </li>
 		</ul>
 	    </section>
 
