@@ -30,8 +30,7 @@
     <script src="js/keypress-1.0.1.js"></script>
     <!--[if lt IE 9]>
 		    <script src="lib/js/html5shiv.js"></script>
-		    <![endif]-->
-
+		    <![endif]--> 
   </head>
 
   <body>
@@ -56,7 +55,6 @@
 		  <li>Clojure Hadoop</li>
 		  <li>Clojure on EMR</li>
 		  <li>Cascalog</li>
-		  <li>Pitfalls</li>
 		</ul>
 	    </p>
 
@@ -106,6 +104,8 @@
 		<h4> High order functions</h4>
 	      <pre><code class="clojure"> 
 (filter #(> % 1) [1 2 3])
+
+; 2 3 
 		</code></pre>
 	    </section>
 
@@ -114,6 +114,8 @@
 		<h4> Java interop</h4>
 		<pre><code class="clojure">
 (.length (String. "hello"))
+
+; 5
 		</code></pre>
 	    </section>
 
@@ -168,8 +170,26 @@
 		</code></pre> 
 	    </section>
 	    <section>
-		<h2> 784 vs 259 lines </h3>
+		<h2> 784 vs 259 characters </h3>
 		<h4> 3 times reduction in size! </h3>
+	    </section>
+	    <section>
+	      <pre><code class="clojure"> 
+(imp/import-conf)
+(imp/import-io)
+(imp/import-fs)
+(imp/import-mapreduce)
+(imp/import-mapreduce-lib)
+
+(defjob job
+  :map my-map
+  :map-reader wrap/int-string-map-reader
+  :reduce my-reduce
+  :input-format :text
+  :input "README.txt"
+  :output "tmp/out4"
+  :replace true)
+		</code></pre>
 	    </section>
 	    <section> 
 		<h3> <strike>Compile</strike> work flow</h3> 
@@ -276,8 +296,8 @@ Found 5 outliers in 60 samples (8.3333 %)
 
 	  <section id="cascalog">
 	    <section>
-		<h3>Cascalog</h3>
-		<h4> declerative Hadoop Jobs </h4>
+		<h2>Cascalog</h2>
+		<h4>Declerative Hadoop Jobs </h4>
 	    </section>
 	    <section>
 		<h3> Query </h3>
@@ -288,6 +308,8 @@ Found 5 outliers in 60 samples (8.3333 %)
 		  <li>Operates on tuples</li>
 		</ul>
 	    </section>
+
+	    <section><img src="images/tuples.png" style='border:none;background:black;'></section>
 
 	    <section>
 		<h3> Defining a query <- </h3>
@@ -324,7 +346,7 @@ Found 5 outliers in 60 samples (8.3333 %)
 	    </section>
 
 	    <section>
-		<h3> Generators </h3>
+		<h3> Generators (tuple source) </h3>
 	      <pre><code class="clojure"> 
 (def generator-seq [["a" 1] 
                     ["b" 2]])
@@ -335,7 +357,7 @@ Found 5 outliers in 60 samples (8.3333 %)
 		</code></pre>
 	    </section>
 	    <section>
-		<h3> Operations </h3>
+		<h3> Operations (filter or manipulation) </h3>
 		<pre><code class="clojure">
 (defmapcatop split [sentence]
   (seq (.split sentence "\\s+")))	
@@ -348,7 +370,7 @@ Found 5 outliers in 60 samples (8.3333 %)
 		</aside>
 	    </section>
 	    <section>
-	      <h3> Aggregators </h3>
+	      <h3> Aggregators (sum, min, count) </h3>
 		<pre><code class="clojure"> 
 (?<- (stdout) [?word ?count] (sentence ?s)
   (split ?s :> ?word) (c/count ?count))

@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="tuples.svg">
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="556.09923"
+     inkscape:cy="411.82191"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="876"
+     inkscape:window-x="0"
+     inkscape:window-y="204"
+     inkscape:window-maximized="1" />
+  <defs
+     id="defs4">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart">
+      <path
+         transform="scale(0.8) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path3807" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path3810" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstarth"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstarth">
+      <path
+         transform="scale(0.8) translate(12.5,0)"
+         style="stroke:#ffffff;stroke-width:1.0pt;fill:#ffffff;fill-rule:evenodd"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path4440" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstarth-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstarth">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4440-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstarth-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstarth">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4440-6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstarth-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstarth">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4440-8" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstarth-97"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstarth">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4440-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstarth-80"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstarth">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4440-57" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstarth-92"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstarth">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#ffffff;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path4440-0" />
+    </marker>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <rect
+       transform="matrix(0.00500367,-0.99998748,0.99999482,0.00321775,0,0)"
+       ry="16.977556"
+       y="-7.5221353"
+       x="-744.72412"
+       height="771.36292"
+       width="502.85941"
+       id="rect2985"
+       style="fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:2.01005483;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755"
+       y="414.93359"
+       x="183.71426"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="414.93359"
+         x="183.71426"
+         id="tspan3757"
+         sodipodi:role="line">[&quot;a&quot; 1]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755-1"
+       y="655.07599"
+       x="388.13126"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="655.07599"
+         x="388.13126"
+         id="tspan3757-9"
+         sodipodi:role="line">[&quot;c&quot; 1]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755-19"
+       y="441.71698"
+       x="0.29436463"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="441.71698"
+         x="0.29436463"
+         id="tspan3757-6"
+         sodipodi:role="line">[&quot;ab&quot;]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755-19-2"
+       y="597.45819"
+       x="4.3225908"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="597.45819"
+         x="4.3225908"
+         id="tspan3757-6-6"
+         sodipodi:role="line">[&quot;ac&quot;]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755-04"
+       y="567.35571"
+       x="180.7186"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="567.35571"
+         x="180.7186"
+         id="tspan3757-69"
+         sodipodi:role="line">[&quot;a&quot; 1]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755-1-6"
+       y="621.91431"
+       x="178.15585"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="621.91431"
+         x="178.15585"
+         id="tspan3757-9-14"
+         sodipodi:role="line">[&quot;c&quot; 1]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755-13"
+       y="380.9408"
+       x="388.30826"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="380.9408"
+         x="388.30826"
+         id="tspan3757-92"
+         sodipodi:role="line">[&quot;a&quot; 1]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755-1-1"
+       y="427.49936"
+       x="387.74551"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="427.49936"
+         x="387.74551"
+         id="tspan3757-9-6"
+         sodipodi:role="line">[&quot;a&quot; 1]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755-1-64"
+       y="467.07291"
+       x="180.50578"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="467.07291"
+         x="180.50578"
+         id="tspan3757-9-8"
+         sodipodi:role="line">[&quot;b&quot; 1]</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755-1-64-5"
+       y="525.74298"
+       x="389.60736"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="525.74298"
+         x="389.60736"
+         id="tspan3757-9-8-3"
+         sodipodi:role="line">[&quot;b&quot; 1]</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4671"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><flowRegion
+         id="flowRegion4673"><rect
+           id="rect4675"
+           width="180.81731"
+           height="314.15744"
+           x="148.49243"
+           y="104.8391" /></flowRegion><flowPara
+         id="flowPara4677"></flowPara></flowRoot>    <path
+       inkscape:connector-curvature="0"
+       id="path3801-9"
+       d="m 164.54086,405.6372 c -30.41089,13.75429 -30.41089,13.75429 -30.41089,13.75429"
+       style="fill:none;stroke:#ffffff;stroke-width:0.74957854;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Lstarth)"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3801-9-5"
+       d="m 161.79186,454.07694 c -32.01684,-9.42997 -32.01684,-9.42997 -32.01684,-9.42997"
+       style="fill:none;stroke:#ffffff;stroke-width:0.74957854;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Lstarth)"
+       inkscape:transform-center-y="-19.132054"
+       inkscape:transform-center-x="-16.483915"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3801-9-0"
+       d="m 354.51517,378.9671 c -30.41089,13.75429 -30.41089,13.75429 -30.41089,13.75429"
+       style="fill:none;stroke:#ffffff;stroke-width:0.74957854;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Lstarth)"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3801-9-5-0"
+       d="m 355.29785,477.26991 c -32.01684,-9.42997 -32.01684,-9.42997 -32.01684,-9.42997"
+       style="fill:none;stroke:#ffffff;stroke-width:0.74957854;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Lstarth)"
+       inkscape:transform-center-y="-19.132054"
+       inkscape:transform-center-x="-16.483915"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3755-13-5"
+       y="409.35208"
+       x="575.80359"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         style="fill:#ffffff;fill-opacity:1"
+         y="409.35208"
+         x="575.80359"
+         id="tspan3757-92-3"
+         sodipodi:role="line">[&quot;a&quot; 2]</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path3801-9-0-0"
+       d="m 565.83218,392.56512 c -33.17384,-3.67404 -33.17384,-3.67404 -33.17384,-3.67404"
+       style="fill:none;stroke:#ffffff;stroke-width:0.74957854;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Lstarth)"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3801-9-5-0-7"
+       d="m 343.17602,635.86386 c -32.01684,-9.42997 -32.01684,-9.42997 -32.01684,-9.42997"
+       style="fill:none;stroke:#ffffff;stroke-width:0.74957854;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Lstarth)"
+       inkscape:transform-center-y="-19.132054"
+       inkscape:transform-center-x="-16.483915"
+       inkscape:export-filename="/home/ronen/code/clojure-bigdata-processing/images/tuples.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>
