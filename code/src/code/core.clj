@@ -14,13 +14,15 @@
 
 (defn tokenize [s] (StringTokenizer. s))
 
+(def k (Text.))
+(def one (IntWritable. 1))
+
 (defn mapper-map [this ^Text key ^Text value ^MapContext context]
-   (doseq [t (enumeration-seq (tokenize (str value)))]
-     (.write context (Text. t) (IntWritable. 1))))  
-          
+  (doseq [t (enumeration-seq (tokenize (str value)))]
+    (.write context (doto k (.set t)) one)))  
+
 (defn reducer-reduce [this key ints context]
-  (let [larger (filter #(> % 1) ints)]
-    (.write context key (reduce + (map #(.get %) larger)))))
+  (.write context key (reduce + (map #(.get %) ints))))
 
 (defn tool-run [^Tool this args]
   (let [[{:keys [input output tmp]} args banner]

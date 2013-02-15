@@ -161,9 +161,9 @@
 	    <section> 
 		<pre><code class="clojure">(defn tokenize [s] (StringTokenizer. s))
 
-(defn mapper-map [this key value context]
-   (doseq [t (enumeration-seq (tokenize (str value)))]
-     (.write context (Text. t) (IntWritable. 1))))  
+(defn mapper-map [this ^Text key ^Text value ^MapContext context]
+  (doseq [t (enumeration-seq (tokenize (str value)))]
+    (.write context (doto k (.set t)) one))) 
 
 (defn reducer-reduce [this key ints context]
   (.write context key (reduce + (map #(.get %) ints))))
